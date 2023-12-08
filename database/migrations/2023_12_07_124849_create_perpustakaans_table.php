@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('perpustakaans', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('author');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -82,9 +82,9 @@
                 <div class="row">
                 @foreach($books as $book)
                     <div class="book">
-                        <img src="{{ asset($book['image']) }}" alt="{{ $book['title'] }}" />
-                        <h3>{{ $book['title'] }}</h3>
-                        <p>Author: {{ $book['author'] }}</p>
+                        <img src="{{ asset($book->image) }}" alt="{{ $book->title }}" />
+                        <h3>{{ $book->title }}</h3>
+                        <p>Author: {{ $book->author }}</p>
                     </div>
                 @endforeach
                 </div>

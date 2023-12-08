@@ -4,8 +4,18 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PerpustakaanController;
 
 Route::get('/perpustakaan', [LibraryController::class, 'index']);
+
+
+Route::get('/perpustakaan', [PerpustakaanController::class, 'index'])->name('perpustakaan.index');
+Route::get('/perpustakaan/create', [PerpustakaanController::class, 'create'])->name('perpustakaan.create');
+Route::post('/perpustakaan/store', [PerpustakaanController::class, 'store'])->name('perpustakaan.store');
+Route::get('/perpustakaan/{id}', [PerpustakaanController::class, 'show'])->name('perpustakaan.show');
+Route::get('/perpustakaan/{id}/edit', [PerpustakaanController::class, 'edit'])->name('perpustakaan.edit');
+Route::put('/perpustakaan/{id}/update', [PerpustakaanController::class, 'update'])->name('perpustakaan.update');
+Route::delete('/perpustakaan/{id}/destroy', [PerpustakaanController::class, 'destroy'])->name('perpustakaan.destroy');
 
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');

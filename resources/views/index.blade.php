@@ -1,42 +1,43 @@
-<!-- resources/views/admin/index.blade.php -->
+<!-- resources/views/perpustakaan/index.blade.php -->
 @extends('layouts.app')
 
 @section('content')
-    <h1>Daftar Buku</h1>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy2Q8v6+UZl5Pz9zXRi0JqU6tZLs0FZxqU" crossorigin="anonymous">
 
-    <a href="{{ route('admin.create') }}" class="btn btn-primary">Tambah Buku</a>
+    <div class="container mt-5">
+        <h1>Daftar Perpustakaan</h1>
 
-    @if(session('success'))
-        <div class="alert alert-success mt-3">
-            {{ session('success') }}
-        </div>
-    @endif
+        @if(session('success'))
+            <div class="alert alert-success mt-3">
+                {{ session('success') }}
+            </div>
+        @endif
 
-    <table class="table mt-3">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Judul</th>
-                <th>Pengarang</th>
-                <th>Gambar</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($books as $book)
+        <table class="table mt-3">
+            <thead>
                 <tr>
-                    <td>{{ $book->id }}</td>
-                    <td>{{ $book->title }}</td>
-                    <td>{{ $book->author }}</td>
-                    <td>
-                        <img src="{{ asset('storage/' . $book->image) }}" alt="{{ $book->title }}" style="max-width: 100px;">
-                    </td>
-                    <td>
-                        <a href="{{ route('admin.edit', $book->id) }}" class="btn btn-warning">Edit</a>
-                        <a href="{{ route('admin.destroy', $book->id) }}" class="btn btn-danger">Hapus</a>
-                    </td>
+                    <th>ID</th>
+                    <th>Judul</th>
+                    <th>Pengarang</th>
+                    <th>Gambar</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @forelse($perpustakaans as $perpustakaan)
+                    <tr>
+                        <td>{{ $perpustakaan->id }}</td>
+                        <td>{{ $perpustakaan->judul }}</td>
+                        <td>{{ $perpustakaan->pengarang }}</td>
+                        <td>
+                            <img src="{{ asset('storage/' . $perpustakaan->gambar) }}" alt="{{ $perpustakaan->judul }}" style="max-width: 100px;">
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="4">Tidak ada data perpustakaan.</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
 @endsection
