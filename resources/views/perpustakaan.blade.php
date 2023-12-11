@@ -80,11 +80,11 @@
         <section id="koleksi" class="koleksi">
             <h2><span>Koleksi</span> Buku</h2>
                 <div class="row">
-                @foreach($books as $book)
+                @foreach($perpustakaans as $perpustakaans)
                     <div class="book">
-                        <img src="{{ asset($book->image) }}" alt="{{ $book->title }}" />
-                        <h3>{{ $book->title }}</h3>
-                        <p>Author: {{ $book->author }}</p>
+                        <img src="{{ asset($perpustakaans->image) }}" alt="{{ $perpustakaans->title }}" />
+                        <h3>{{ $perpustakaans->title }}</h3>
+                        <p>Author: {{ $perpustakaans->author }}</p>
                     </div>
                 @endforeach
                 </div>

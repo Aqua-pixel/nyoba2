@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Book; // Pastikan Anda memiliki model Book yang sudah dibuat sebelumnya
+use App\Models\book; // Pastikan Anda memiliki model Book yang sudah dibuat sebelumnya
 
 class AdminController extends Controller
 {

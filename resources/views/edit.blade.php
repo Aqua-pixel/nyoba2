@@ -1,7 +1,13 @@
-<!-- resources/views/products/edit.blade.php -->
-@extends('layouts.app')
-
-@section('content')
+<!-- resources/views/perpustakaan/edit.blade.php -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Perpustakaan</title>
+    <!-- Tambahkan link ke CSS atau Bootstrap jika diperlukan -->
+</head>
+<body>
     <div class="container mt-5">
         <h1>Edit Perpustakaan</h1>
 
@@ -20,19 +26,21 @@
             @method('PUT')
 
             <div class="mb-3">
-                <label for="judul" class="form-label">Judul</label>
-                <input type="text" class="form-control" id="judul" name="judul" value="{{ old('judul', $perpustakaan->judul) }}">
+                <label for="judul">Judul</label>
+                <input type="text" id="judul" name="judul" value="{{ old('judul', $perpustakaan->judul) }}" required>
             </div>
             <div class="mb-3">
-                <label for="pengarang" class="form-label">Pengarang</label>
-                <input type="text" class="form-control" id="pengarang" name="pengarang" value="{{ old('pengarang', $perpustakaan->pengarang) }}">
+                <label for="pengarang">Pengarang</label>
+                <input type="text" id="pengarang" name="pengarang" value="{{ old('pengarang', $perpustakaan->pengarang) }}" required>
             </div>
             <div class="mb-3">
-                <label for="gambar" class="form-label">Gambar</label>
-                <input type="file" class="form-control" id="gambar" name="gambar">
+                <label for="gambar">Gambar</label>
+                <input type="file" id="gambar" name="gambar">
                 <img src="{{ asset('storage/' . $perpustakaan->gambar) }}" alt="{{ $perpustakaan->judul }}" style="max-width: 100px;">
             </div>
-            <button type="submit" class="btn btn-primary">Perbarui</button>
+            <button type="submit">Perbarui</button>
         </form>
     </div>
-@endsection
+    <!-- Tambahkan script atau link ke JavaScript jika diperlukan -->
+</body>
+</html>
